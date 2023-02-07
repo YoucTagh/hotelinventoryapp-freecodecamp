@@ -1,5 +1,32 @@
 <h1>Welcome to {{hotelName}}</h1>
 
-<div [innerText]="numberOfRooms"></div>
+{{rooms?.availableRooms ?? 'No rooms'}}
+
+<div *ngIf="rooms.availableRooms != undefined && rooms.availableRooms > 0">
+    Rooms List
+    <table class="table">
+        <tr>
+            <th>Index</th>
+            <th>Even/Odd</th>
+            <th>Deluxe</th>
+            <th>Amenities</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Checkin Time</th>
+            <th>Checkout Time</th>
+        </tr>
+        <tr *ngFor="let room of roomList; let e=even;let o=odd;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{e?'Even':'Odd'}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.amenities}}</td>
+            <td>,<img [src]="room.photos" alt="" srcset="" height="50px" width="50px"></td>
+            <td>{{room.price}}</td>
+            <td>{{room.checkinTime | date}}</td>
+            <td>{{room.checkoutTime | date}}</td>
+        </tr>
+    </table>
+</div>
+
 
 <button (click)="increement()">Increement</button>
