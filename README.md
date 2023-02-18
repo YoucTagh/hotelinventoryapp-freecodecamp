@@ -1,6 +1,6 @@
 # HotelinventoryappFreecodecamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+This project is realised during my training sessions following [the freeodeCamp course](https://www.youtube.com/watch?v=3qBXWUpoPHo&ab_channel=freeCodeCamp.org).
 
 ## Development server
 
