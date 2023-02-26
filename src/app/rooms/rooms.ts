@@ -1,3 +1,4 @@
+import { NumberValueAccessor } from "@angular/forms";
 import { Data } from "@angular/router";
 
 export interface Room {
@@ -13,4 +14,5 @@ export interface RoomList{
   photos:string;
   checkinTime:Date;
   checkoutTime:Date;
+  rating:number;
 }
