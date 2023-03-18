@@ -1,0 +1,26 @@
+<table class="table">
+    <tr>
+        <th>Index</th>
+        <th>Even/Odd</th>
+        <th>Deluxe</th>
+        <th>Amenities</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Checkin Time</th>
+        <th>Checkout Time</th>
+        <th>Rating</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let room of roomList; let e=even;let o=odd;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{e?'Even':'Odd'}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.amenities | titlecase}}</td>
+        <td>,<img [src]="room.photos" alt="" srcset="" height="50px" width="50px"></td>
+        <td>{{room.price | currency :'EUR'}}</td>
+        <td>{{room.checkinTime | date :'dd/MMM/yyyy'}}</td>
+        <td>{{room.checkoutTime | date}}</td>
+        <td>{{room.rating|number:'2.4-4':'en-us'}}</td>
+        <td><button (click)="selectRoom(room)">Select</button></td>
+    </tr>
+</table>
