@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from './../header/header.component';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
 
@@ -7,7 +8,7 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit, AfterViewInit {
   hotelName = 'Zianid Hotel';
   numberOfRooms = 10;
   selectedRoom?: RoomList;
@@ -40,9 +41,21 @@ export class RoomsComponent implements OnInit {
     },
   ];
 
+  @ViewChild(HeaderComponent
+    // , { static: true }
+    )
+  headerComponent!: HeaderComponent;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.headerComponent);
+  }
+
+  ngAfterViewInit(): void {
+    // console.log(this.headerComponent);
+    this.headerComponent.title = "Rooms View"
+  }
 
   increement() {
     this.numberOfRooms++;

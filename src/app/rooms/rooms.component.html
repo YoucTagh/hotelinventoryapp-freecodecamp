@@ -1,5 +1,7 @@
 <h1>Welcome to {{hotelName}}</h1>
 
+<hinv-header></hinv-header>
+
 {{rooms?.availableRooms ?? 'No rooms'}}
 
 <div *ngIf="rooms.availableRooms != undefined && rooms.availableRooms > 0">
