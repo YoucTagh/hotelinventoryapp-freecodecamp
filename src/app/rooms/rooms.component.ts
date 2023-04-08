@@ -1,7 +1,15 @@
 import { HeaderComponent } from './../header/header.component';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
+import { Head } from 'rxjs';
 
 @Component({
   selector: 'hinv-rooms',
@@ -41,10 +49,14 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  @ViewChild(HeaderComponent
+  @ViewChild(
+    HeaderComponent
     // , { static: true }
-    )
+  )
   headerComponent!: HeaderComponent;
+
+  @ViewChildren(HeaderComponent)
+  headerChildrenComponent!: QueryList<HeaderComponent>;
 
   constructor() {}
 
@@ -54,7 +66,10 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // console.log(this.headerComponent);
-    this.headerComponent.title = "Rooms View"
+    this.headerComponent.title = 'Rooms View';
+    this.headerChildrenComponent.forEach((h, index) => {
+      h.title = `Room View ${index+1} `;
+    });
   }
 
   increement() {
