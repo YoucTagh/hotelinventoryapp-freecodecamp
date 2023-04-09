@@ -20,6 +20,9 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   hotelName = 'Zianid Hotel';
   numberOfRooms = 10;
   selectedRoom?: RoomList;
+
+  hidden:boolean = false;
+
   rooms: Room = {
     totalRooms: 20,
     availableRooms: 10,
@@ -92,5 +95,9 @@ export class RoomsComponent implements OnInit, AfterViewInit {
       rating: 3.353,
     };
     this.roomList = [...this.roomList, room];
+  }
+
+  hideRooms(){
+    this.hidden = !this.hidden;
   }
 }
