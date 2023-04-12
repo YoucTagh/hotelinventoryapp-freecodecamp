@@ -75,7 +75,8 @@
               "browserTarget": "hotelinventoryapp-freecodecamp:build:production"
             },
             "development": {
-              "browserTarget": "hotelinventoryapp-freecodecamp:build:development"
+              "browserTarget": "hotelinventoryapp-freecodecamp:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
