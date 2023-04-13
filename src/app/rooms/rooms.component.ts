@@ -22,7 +22,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   numberOfRooms = 10;
   selectedRoom?: RoomList;
 
-  hidden:boolean = false;
+  hidden: boolean = false;
 
   rooms: Room = {
     totalRooms: 20,
@@ -30,7 +30,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     bookedRooms: 5,
   };
 
-  roomList: RoomList[] =[]
+  roomList: RoomList[] = [];
 
   @ViewChild(
     HeaderComponent
@@ -41,18 +41,20 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
-  constructor(private roomsService:RoomsService) {}
+  constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
-    this.roomList = this.roomsService.getRoomss();
+    this.roomsService.getRoomss().subscribe((data) => {
+      this.roomList = data;
+    });
   }
 
   ngAfterViewInit(): void {
     // console.log(this.headerComponent);
     this.headerComponent.title = 'Rooms View';
     this.headerChildrenComponent.forEach((h, index) => {
-      h.title = `Room View ${index+1} `;
+      h.title = `Room View ${index + 1} `;
     });
   }
 
@@ -78,7 +80,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     this.roomList = [...this.roomList, room];
   }
 
-  hideRooms(){
+  hideRooms() {
     this.hidden = !this.hidden;
   }
 }
