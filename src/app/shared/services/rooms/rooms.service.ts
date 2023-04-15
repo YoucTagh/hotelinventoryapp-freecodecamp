@@ -15,7 +15,22 @@ export class RoomsService {
     console.log(config.apiEndpoint) 
   }
 
-  getRoomss() {
+  getRooms() {
     return this.http.get<RoomList[]>('/api/rooms')
   }
+
+  addRoom(room:RoomList){
+    return this.http.post<RoomList[]>('/api/rooms',room);
+  }
+  
+  updateRoom(room:RoomList){
+    return this.http.put<RoomList[]>(`/api/rooms/${room.roomNumber}`,room);
+  }
+  
+  deleteRoom(room:RoomList){
+    return this.http.delete<RoomList[]>(`/api/rooms/${room.roomNumber}`);
+  }
+
+  
+
 }

@@ -8,7 +8,7 @@
 
 <div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
     Rooms List
-    <hinv-room-list [roomList]="roomList" (selectedRoom)="selectRoom($event)"></hinv-room-list>
+    <hinv-room-list [roomList]="roomList" (selectedRoom)="selectRoom($event)" (deletedRoom)="deleteRoom($event)"></hinv-room-list>
 </div>
 
 <div>
@@ -22,3 +22,5 @@
 <button (click)="increement()">Increement</button>
 
 <button (click)="hideRooms()">Hide Rooms List</button>
+
+<button (click)="editRoom()">Edit Room</button>

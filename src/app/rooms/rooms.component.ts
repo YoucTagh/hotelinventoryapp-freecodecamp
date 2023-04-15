@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
-import { Head } from 'rxjs';
+import { Head, observable, Observable } from 'rxjs';
 
 @Component({
   selector: 'hinv-rooms',
@@ -32,6 +32,13 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
   roomList: RoomList[] = [];
 
+  stream = new Observable<string>((observable) => {
+    observable.next('user1');
+    observable.next('user2');
+    observable.next('user3');
+    observable.complete();
+  });
+
   @ViewChild(
     HeaderComponent
     // , { static: true }
@@ -45,7 +52,14 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
-    this.roomsService.getRoomss().subscribe((data) => {
+
+    this.stream.subscribe({
+      next: (value) => console.log(value),
+      complete: () => console.log('Done'),
+      error: (err) => console.log(err),
+    });
+
+    this.roomsService.getRooms().subscribe((data) => {
       this.roomList = data;
     });
   }
@@ -66,6 +80,12 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     this.selectedRoom = room;
   }
 
+  deleteRoom(room: RoomList) {
+    this.roomsService.deleteRoom(room).subscribe((data) => {
+      this.roomList = data;
+    });
+  }
+
   addRoom() {
     const room: RoomList = {
       roomType: 'Deluxe Room Trio',
@@ -77,7 +97,28 @@ export class RoomsComponent implements OnInit, AfterViewInit {
       checkoutTime: new Date('16-Nov-2022'),
       rating: 3.353,
     };
-    this.roomList = [...this.roomList, room];
+    // this.roomList = [...this.roomList, room];
+    this.roomsService.addRoom(room).subscribe((data) => {
+      this.roomList = data;
+    });
+  }
+
+  editRoom() {
+    const room: RoomList = {
+      roomNumber: '3',
+      roomType: 'Updated Data',
+      amenities: 'Am',
+      price: 1200,
+      photos:
+        'https://images.unsplash.com/photo-1593624859907-dfe61e03dbeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
+      checkinTime: new Date('13-Nov-2022'),
+      checkoutTime: new Date('16-Nov-2022'),
+      rating: 3.353,
+    };
+    // this.roomList = [...this.roomList, room];
+    this.roomsService.updateRoom(room).subscribe((data) => {
+      this.roomList = data;
+    });
   }
 
   hideRooms() {

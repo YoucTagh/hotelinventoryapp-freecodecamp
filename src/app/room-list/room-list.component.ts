@@ -1,3 +1,4 @@
+import { Room } from './../rooms/rooms';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { RoomList } from '../rooms/rooms';
 
@@ -10,6 +11,7 @@ import { RoomList } from '../rooms/rooms';
 export class RoomListComponent implements OnInit,OnChanges,OnDestroy {
   @Input() roomList: RoomList[] = [];
   @Output() selectedRoom: EventEmitter<RoomList> = new EventEmitter<RoomList>();
+  @Output() deletedRoom:EventEmitter<RoomList> = new EventEmitter<RoomList>();
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -21,6 +23,10 @@ export class RoomListComponent implements OnInit,OnChanges,OnDestroy {
 
   selectRoom(room: RoomList) {
     this.selectedRoom.emit(room);
+  }
+
+  deleteRoom(room:RoomList){
+    this.deletedRoom.emit(room);
   }
 
   ngOnDestroy(): void {
