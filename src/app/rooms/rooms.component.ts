@@ -11,6 +11,8 @@ import {
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
 import { Head, observable, Observable } from 'rxjs';
+import { throws } from 'assert';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'hinv-rooms',
@@ -22,7 +24,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   numberOfRooms = 10;
   selectedRoom?: RoomList;
 
-  hidden: boolean = false;
+  hidden: boolean = true;
 
   rooms: Room = {
     totalRooms: 20,
@@ -48,6 +50,8 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   @ViewChildren(HeaderComponent)
   headerChildrenComponent!: QueryList<HeaderComponent>;
 
+  totalBytes = 0;
+
   constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {
@@ -61,6 +65,24 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
     this.roomsService.getRooms().subscribe((data) => {
       this.roomList = data;
+    });
+
+    this.roomsService.getPhotos().subscribe((event) => {
+      switch (event.type) {
+        case HttpEventType.Sent:
+          console.log('Request Sent');
+          break;
+        case HttpEventType.ResponseHeader:
+          console.log('Request Success');
+          break;
+        case HttpEventType.DownloadProgress:
+          console.log(`Download in Progress ${this.totalBytes}`);
+          this.totalBytes += event.loaded;
+          break;
+        case HttpEventType.Response:
+          console.log(event.body);
+          break;
+      }
     });
   }
 
