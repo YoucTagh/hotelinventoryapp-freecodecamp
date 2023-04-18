@@ -63,7 +63,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
       error: (err) => console.log(err),
     });
 
-    this.roomsService.getRooms().subscribe((data) => {
+    this.roomsService.getRoom$.subscribe((data) => {
       this.roomList = data;
     });
 
