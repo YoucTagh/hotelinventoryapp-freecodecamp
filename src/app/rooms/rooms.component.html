@@ -1,16 +1,17 @@
 <h1>Welcome to {{hotelName}}</h1>
 
 <hinv-header></hinv-header>
-<hinv-header></hinv-header>
-<hinv-header></hinv-header>
 
 {{rooms?.availableRooms ?? 'No rooms'}}
 
-<div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
-    Rooms List
-    <hinv-room-list [roomList]="roomList" (selectedRoom)="selectRoom($event)" (deletedRoom)="deleteRoom($event)"></hinv-room-list>
-</div>
+<div *ngIf="rooms$ | async as roomsAsync">
+    <div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
+        Rooms List
+        <hinv-room-list [roomList]="roomsAsync" (selectedRoom)="selectRoom($event)"
+            (deletedRoom)="deleteRoom($event)"></hinv-room-list>
+    </div>
 
+</div>
 <div>
     {{selectedRoom|json}}
 </div>

@@ -55,6 +55,8 @@ export class RoomsComponent implements OnInit, AfterViewInit ,OnDestroy{
 
   subscription!: Subscription;
 
+  rooms$ = this.roomsService.getRoom$;
+
   constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {
@@ -66,9 +68,9 @@ export class RoomsComponent implements OnInit, AfterViewInit ,OnDestroy{
       error: (err) => console.log(err),
     });
 
-    this.subscription =  this.roomsService.getRoom$.subscribe((data) => {
-      this.roomList = data;
-    });
+    // this.roomsService.getRoom$.subscribe((data) => {
+    //   this.roomList = data;
+    // });
 
     this.roomsService.getPhotos().subscribe((event) => {
       switch (event.type) {
