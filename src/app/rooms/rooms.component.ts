@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
-import { Head, observable, Observable, Subscription } from 'rxjs';
+import { catchError, Head, observable, Observable, of, Subject, Subscription } from 'rxjs';
 import { throws } from 'assert';
 import { HttpEventType } from '@angular/common/http';
 
@@ -20,7 +20,7 @@ import { HttpEventType } from '@angular/common/http';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent implements OnInit, AfterViewInit ,OnDestroy{
+export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
   hotelName = 'Zianid Hotel';
   numberOfRooms = 10;
   selectedRoom?: RoomList;
@@ -55,12 +55,23 @@ export class RoomsComponent implements OnInit, AfterViewInit ,OnDestroy{
 
   subscription!: Subscription;
 
-  rooms$ = this.roomsService.getRoom$;
+  error$ = new Subject<string>() ;
+  
+  getError$ = this.error$.asObservable();
+
+  rooms$ = this.roomsService.getRoom$.pipe(
+    catchError((err) => {
+      // console.log(err);
+      this.error$.next(err.message)
+      return of([]);
+    })
+  );
 
   constructor(private roomsService: RoomsService) {}
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
+
 
     this.stream.subscribe({
       next: (value) => console.log(value),
@@ -152,8 +163,8 @@ export class RoomsComponent implements OnInit, AfterViewInit ,OnDestroy{
     this.hidden = !this.hidden;
   }
 
-  ngOnDestroy(){
-    if(this.subscription){
+  ngOnDestroy() {
+    if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }

@@ -11,7 +11,7 @@ import { shareReplay } from 'rxjs';
 export class RoomsService {
   roomList: RoomList[] = [];
 
-  getRoom$ = this.http.get<RoomList[]>('/api/rooms').pipe(
+  getRoom$ = this.http.get<RoomList[]>('/api/room').pipe(
     shareReplay(1)
   );
 
