@@ -2,26 +2,89 @@
 
 This project is realised during my training sessions following [the freeodeCamp course](https://www.youtube.com/watch?v=3qBXWUpoPHo&ab_channel=freeCodeCamp.org).
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+⭐️ Course Contents ⭐️
+* Introduction
+  * Introduction to Angular
+  * Introduction to Typescript
+  * SPA and Local Setup
+* Typescript
+  * Typescript Data Types and Functions
+  * Classes and Interface
+  * Typescript decorators and tsconfig file
+* Angular Installation and Basics
+  * Angular Installation and Binding Syntax
+  * Built-in Directives
+  * Built-in Pipes
+  * Adding Bootstrap CSS to App
+* Lifecycle Hook and Component Communication
+  * ngOnInt and Component Communication using Input and Output
+  * Change Detection and ngOnChanges
+  * ngDoCheck
+  * ViewChild, ViewChildren and AfterViewInit
+  * Content Projection, AfterContentInit and OnDestroy
+* Dependency Injection
+  * Introduction
+  * Resolution Modifiers
+  * Value Providers
+* HttpClient and RxJs
+  * Setting Up HttpClientModule
+  * HttpService , RxJs observables and http get
+  * RxJs Observable and Observer
+  * Http Put and Delete
+  * Http Request
+  * ShareReplay RxJs Operators
+  * Async Pipe
+  * catchError operator
+  * map operator
+  * Http Interceptor
+  * APP_INITIALIZER
+* Routing Basics
+  * Angular Router and default Route
+  * Adding Angular material and navigation
+  * Wild card, dynamic route and ActivatedRoute service
+  * ParamMap and Activate Route Service
+* Template Driven Forms
+  * Introduction
+  * Validation
+  * Pristine, Dirty State and Reset Form
+  * Custom Directives and Custom Validation
+* Advanced Routing
+  * Navigation using Router Service
+  * Feature and Routing Module
+  * Nested and Child Route
+  * Lazy Loading
+  * Configure Lazy Loading using CLI
+  * Using ProvidedIn Any
+  * Router Events
+  * Listening to Router Events
+* Route Guards
+  * CanActivate
+  * CanActivateChild
+  * CanLoad
+* Reactive Forms
+  * Introduction
+  * Using Material Controls
+  * Nested Form Controls
+  * Dynamic Forms
+  * Built-in Validators
+  * Reset Form
+  * Control Level Validation
+  * SetValue and PatchValue
+  * ValueChanges and UpdateOn
+  * map operator with Form
+  * Custom Validator
+* CanDeactivate Guard
+  * CanDeactivate Guard and Form
+* Custom Pipe
+  * Custom Pipe
+* Resolve Guard
+  * Resolve Guard
+* Global Error Handling
+  * Error Handling
+* Testing Basics
+  * Introduction
+  * First test
+  * Testing Component and Service
+* Deployment and CI/CD
+  * Using Netlify for Deployment 
+  * GitHub Actions to Automate Tasks
