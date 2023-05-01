@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
-import { catchError, Head, observable, Observable, of, Subject, Subscription } from 'rxjs';
+import { catchError, Head, map, observable, Observable, of, Subject, Subscription } from 'rxjs';
 import { throws } from 'assert';
 import { HttpEventType } from '@angular/common/http';
 
@@ -66,6 +66,10 @@ export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
       return of([]);
     })
   );
+
+  roomsCount$ = this.roomsService.getRoom$.pipe(
+    map((rooms) => rooms.length)
+  )
 
   constructor(private roomsService: RoomsService) {}
 

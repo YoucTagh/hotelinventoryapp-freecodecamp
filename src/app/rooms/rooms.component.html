@@ -7,10 +7,15 @@
 <div *ngIf="rooms$ | async as roomsAsync">
     <div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
         Rooms List
-        <hinv-room-list [roomList]="roomsAsync" (selectedRoom)="selectRoom($event)"
-            (deletedRoom)="deleteRoom($event)"></hinv-room-list>
+        <hinv-room-list [roomList]="roomsAsync" (selectedRoom)="selectRoom($event)" (deletedRoom)="deleteRoom($event)">
+        </hinv-room-list>
     </div>
 
+</div>
+<div>
+    <h1>
+        Number of rooms: {{roomsCount$|async}}
+    </h1>
 </div>
 <div>
     {{selectedRoom|json}}
