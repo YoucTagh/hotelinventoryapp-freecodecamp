@@ -3,18 +3,27 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
-
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log(`HTTP Request `,request);
-    
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
+    console.log(`HTTP Request `, request);
+
+    if (request.method === 'POST') {
+      const newRequest = request.clone({
+        headers: new HttpHeaders({ token: 'dskdksdks' }),
+      });
+      return next.handle(newRequest);
+    }
     return next.handle(request);
   }
 }
