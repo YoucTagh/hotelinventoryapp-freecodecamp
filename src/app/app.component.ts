@@ -1,3 +1,4 @@
+import { InitService } from './init.service';
 import { LocalStorageToken } from './localstorage.token';
 import {
   AfterViewInit,
@@ -14,16 +15,22 @@ import { HeaderComponent } from './header/header.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit,AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'hotelinventoryapp-freecodecamp';
 
   @ViewChild('header', { read: ViewContainerRef })
   vcr!: ViewContainerRef;
 
-  constructor(@Inject(LocalStorageToken) private localStorage: Storage) {}
+  constructor(
+    @Inject(LocalStorageToken) private localStorage: Storage,
+    private initService: InitService
+  ) {
+    console.log(this.initService.config);
+    
+  }
 
-  ngOnInit():void{
-    this.localStorage.setItem('name','Youc Tagh')
+  ngOnInit(): void {
+    this.localStorage.setItem('name', 'Youc Tagh');
   }
 
   ngAfterViewInit(): void {
