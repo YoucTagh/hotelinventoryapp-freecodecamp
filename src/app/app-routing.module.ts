@@ -13,10 +13,11 @@ const routes: Routes = [
     path: 'rooms',
     component: RoomsComponent,
   },
-  // {
-  //   path: 'container',
-  //   component: ContainerComponent,
-  // },
+  {
+    path: '',
+    redirectTo: '/rooms',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
