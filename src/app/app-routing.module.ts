@@ -3,6 +3,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/rooms',
     pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: NotfoundComponent,
   },
 ];
 
