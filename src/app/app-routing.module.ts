@@ -1,3 +1,4 @@
+import { RoomsAddComponent } from './rooms-add/rooms-add.component';
 import { RoomsBookingComponent } from './rooms-booking/rooms-booking.component';
 import { ContainerComponent } from './container/container.component';
 import { RoomsComponent } from './rooms/rooms.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'rooms',
     component: RoomsComponent,
+  },
+  {
+    path: 'rooms/add',
+    component: RoomsAddComponent,
   },
   {
     path: 'rooms/:id',
