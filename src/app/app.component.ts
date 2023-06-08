@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const componentRef = this.vcr.createComponent(HeaderComponent);
-    componentRef.instance.title = 'Go man!';
+    // const componentRef = this.vcr.createComponent(HeaderComponent);
+    // componentRef.instance.title = 'Go man!';
   }
 }
