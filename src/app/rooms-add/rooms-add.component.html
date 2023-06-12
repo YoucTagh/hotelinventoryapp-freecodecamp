@@ -4,28 +4,39 @@
     {{successMessage}}
 </div>
 
-<form (ngSubmit)="addRoom()">
+<form #addForm="ngForm" (ngSubmit)="addRoom()">
     <div class="form-group">
-        <input type="text" name="roomType" class="form-control" placeholder="room type" [(ngModel)] = "room.roomType">
+        <input required type="text" name="roomType" class="form-control" placeholder="room type"
+            [(ngModel)]="room.roomType">
     </div>
     <div class="form-group">
-        <input type="text" name="amenities" class="form-control" placeholder="amenities" [(ngModel)] = "room.amenities">
+        <input required type="text" name="amenities" class="form-control" placeholder="amenities"
+            [(ngModel)]="room.amenities">
     </div>
     <div class="form-group">
-        <input type="text" name="photos" class="form-control" placeholder="photos" [(ngModel)] = "room.photos">
+        <input required type="text" name="photos" class="form-control" placeholder="photos" [(ngModel)]="room.photos">
     </div>
     <div class="form-group">
-        <input type="number" name="price" class="form-control" placeholder="price" [(ngModel)] = "room.price">
+        <input required type="number" name="price" class="form-control" placeholder="price" [(ngModel)]="room.price">
     </div>
     <div class="form-group">
-        <input type="date" name="checkinTime" class="form-control" placeholder="check in" [(ngModel)] = "room.checkinTime">
+        <input required type="date" name="checkinTime" class="form-control" placeholder="check in"
+            [(ngModel)]="room.checkinTime">
     </div>
     <div class="form-group">
-        <input type="date" name="checkoutTime" class="form-control" placeholder="check out" [(ngModel)] = "room.checkoutTime">
+        <input required type="date" name="checkoutTime" class="form-control" placeholder="check out"
+            [(ngModel)]="room.checkoutTime">
     </div>
     <div class="form-group">
-        <input type="number" min="1" max="5" name="rating" class="form-control" placeholder="rating" [(ngModel)] = "room.rating">
+        <input required type="number" min="1" max="5" name="rating" class="form-control" placeholder="rating"
+            [(ngModel)]="room.rating">
     </div>
 
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" [disabled]="addForm.invalid">
 </form>
+
+{{addForm.pristine|json}}
+{{addForm.dirty|json}}
+{{addForm.valid|json}}
+{{addForm.invalid|json}}
+{{addForm.value|json}}
