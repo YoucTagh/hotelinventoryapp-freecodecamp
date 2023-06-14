@@ -7,13 +7,11 @@
 <form #addForm="ngForm" (ngSubmit)="addRoom()">
     <div class="form-group">
         <input required type="text" name="roomType" class="form-control" placeholder="room type"
-        [(ngModel)]="room.roomType">
+            [(ngModel)]="room.roomType">
     </div>
     <div class="form-group">
         <input required type="text" name="amenities" class="form-control" placeholder="amenities"
-        #roomsameneties="ngModel"
-        minlength="5" maxlength="20"
-        [(ngModel)]="room.amenities">
+            #roomsameneties="ngModel" email pattern="[a-z]+" minlength="5" maxlength="20" [(ngModel)]="room.amenities">
     </div>
     <div>
         {{roomsameneties.errors | json}}
