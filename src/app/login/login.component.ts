@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'hinv-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   email:string = ''
   password:string = ''
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.email == 'y@t'&& this.password == 'admin'){
       alert('Login Succeessfully')
+      this.router.navigateByUrl('/rooms/add')
     }
   }
 
