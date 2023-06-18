@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { RoomsAddComponent } from './rooms-add/rooms-add.component';
 import { RoomsBookingComponent } from './rooms-booking/rooms-booking.component';
 import { ContainerComponent } from './container/container.component';
@@ -8,6 +9,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: 'employees',
     component: EmployeeComponent,
@@ -26,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/rooms',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
   {
