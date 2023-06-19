@@ -43,6 +43,7 @@ function initFactory(initService: InitService) {
   ],
   imports: [
     BrowserModule,
+    RoomsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -54,7 +55,6 @@ function initFactory(initService: InitService) {
     MatListModule,
     MatInputModule,
     FormsModule,
-    RoomsModule,
   ],
   providers: [
     {
