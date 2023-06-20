@@ -9,10 +9,10 @@ const routes: Routes = [
     path: 'rooms',
     component: RoomsComponent,
     children: [
+      { path: 'add', component: RoomsAddComponent },
       { path: ':id', component: RoomsBookingComponent },
     ],
   },
-  { path: 'rooms/add', component: RoomsAddComponent }
 ];
 
 @NgModule({
