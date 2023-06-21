@@ -43,7 +43,6 @@ function initFactory(initService: InitService) {
   ],
   imports: [
     BrowserModule,
-    RoomsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -5,24 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'employees', component: EmployeeComponent },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'rooms',
+    loadChildren: () => import('./rooms.module').then((m) => m.RoomsModule),
   },
-  {
-    path: 'employees',
-    component: EmployeeComponent,
-  },
-  
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    component: NotfoundComponent,
-  },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
