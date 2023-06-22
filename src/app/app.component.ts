@@ -9,6 +9,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
+import { ConfigService } from './shared/services/config/config.service';
 
 @Component({
   selector: 'hinv-root',
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(LocalStorageToken) private localStorage: Storage,
-    private initService: InitService
+    private initService: InitService,
+    private configService: ConfigService
   ) {
     console.log(this.initService.config);
     

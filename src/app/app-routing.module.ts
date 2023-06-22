@@ -12,6 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./rooms.module').then((m) => m.RoomsModule),
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'booking', loadChildren: () => import('./booking/booking.module').then(m => m.BookingModule) },
   { path: '**', component: NotfoundComponent },
 ];
 

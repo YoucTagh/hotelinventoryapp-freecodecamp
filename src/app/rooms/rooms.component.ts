@@ -11,9 +11,19 @@ import {
 } from '@angular/core';
 import { timeStamp } from 'console';
 import { Room, RoomList } from './rooms';
-import { catchError, Head, map, observable, Observable, of, Subject, Subscription } from 'rxjs';
+import {
+  catchError,
+  Head,
+  map,
+  observable,
+  Observable,
+  of,
+  Subject,
+  Subscription,
+} from 'rxjs';
 import { throws } from 'assert';
 import { HttpEventType } from '@angular/common/http';
+import { ConfigService } from '../shared/services/config/config.service';
 
 @Component({
   selector: 'hinv-rooms',
@@ -55,27 +65,27 @@ export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   subscription!: Subscription;
 
-  error$ = new Subject<string>() ;
-  
+  error$ = new Subject<string>();
+
   getError$ = this.error$.asObservable();
 
   rooms$ = this.roomsService.getRoom$.pipe(
     catchError((err) => {
       // console.log(err);
-      this.error$.next(err.message)
+      this.error$.next(err.message);
       return of([]);
     })
   );
 
-  roomsCount$ = this.roomsService.getRoom$.pipe(
-    map((rooms) => rooms.length)
-  )
+  roomsCount$ = this.roomsService.getRoom$.pipe(map((rooms) => rooms.length));
 
-  constructor(private roomsService: RoomsService) {}
+  constructor(
+    private roomsService: RoomsService,
+    private configService: ConfigService
+  ) {}
 
   ngOnInit(): void {
     // console.log(this.headerComponent);
-
 
     this.stream.subscribe({
       next: (value) => console.log(value),
