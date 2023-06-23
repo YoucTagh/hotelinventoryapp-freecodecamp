@@ -1,12 +1,14 @@
-import { Injectable } from '@angular/core';
+import { RouteConfigToken } from './routeConfig.service';
+import { Inject, Injectable } from '@angular/core';
+import { RouteConfig } from './routeConfig';
 
 @Injectable({
-  providedIn: 'any'
+  providedIn: 'any',
 })
 export class ConfigService {
-
-  constructor() {
+  constructor(@Inject(RouteConfigToken) private configToken: RouteConfig) {
     console.log('ConfigService');
+    console.log(configToken);
     
-   }
+  }
 }

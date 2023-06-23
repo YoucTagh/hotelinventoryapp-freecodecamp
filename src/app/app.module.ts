@@ -1,3 +1,5 @@
+import { RouteConfigToken } from './shared/services/config/routeConfig.service';
+import { RouteConfig } from './shared/services/config/routeConfig';
 import { RoomsModule } from './rooms.module';
 import { InitService } from './init.service';
 import { RequestInterceptor } from './request.interceptor';
@@ -59,6 +61,10 @@ function initFactory(initService: InitService) {
     {
       provide: APP_SERVICE_CONFIG,
       useValue: APP_CONFIG,
+    },
+    {
+      provide: RouteConfigToken,
+      useValue: { title: 'Home' },
     },
     {
       provide: HTTP_INTERCEPTORS,
