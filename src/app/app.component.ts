@@ -10,6 +10,8 @@ import {
 } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { ConfigService } from './shared/services/config/config.service';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'hinv-root',
@@ -25,7 +27,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(LocalStorageToken) private localStorage: Storage,
     private initService: InitService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private router:Router
   ) {
     console.log(this.initService.config);
     
@@ -33,6 +36,20 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.localStorage.setItem('name', 'Youc Tagh');
+    // this.router.events.subscribe((event)=>{
+    //   console.log(event);
+    // })
+    this.router.events.pipe(
+      filter((event)=> event instanceof NavigationStart)
+    ).subscribe((event)=>{
+      console.log('Navigation Started');
+    })
+
+    this.router.events.pipe(
+      filter((event)=> event instanceof NavigationStart)
+    ).subscribe((event)=>{
+      console.log('Navigation Completed');
+    })
   }
 
   ngAfterViewInit(): void {
