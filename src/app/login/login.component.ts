@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,14 +12,13 @@ export class LoginComponent implements OnInit {
   email:string = ''
   password:string = ''
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private loginService:LoginService) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    if(this.email == 'y@t'&& this.password == 'admin'){
-      alert('Login Succeessfully')
+    if(this.loginService.login(this.email, this.password)){
       this.router.navigateByUrl('/rooms/add')
     }
   }

@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -11,6 +12,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate {
+
+  constructor(private loginService:LoginService){
+     
+  }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -19,6 +25,6 @@ export class LoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return false;
+    return this.loginService.isLoggedIn;
   }
 }
