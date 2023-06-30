@@ -1,3 +1,4 @@
+import { RoomsGuard } from './guards/rooms.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RoomsAddComponent } from './rooms-add/rooms-add.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: RoomsComponent,
+    canActivateChild: [RoomsGuard],
     children: [
       { path: 'add', component: RoomsAddComponent },
       { path: ':id', component: RoomsBookingComponent },
