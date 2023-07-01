@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginService.login(this.email, this.password)){
-      this.router.navigateByUrl('/rooms/add')
+      this.router.navigateByUrl('/rooms')
     }
   }
 

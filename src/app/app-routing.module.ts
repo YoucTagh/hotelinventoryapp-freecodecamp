@@ -6,22 +6,23 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   {
     path: 'employees',
     component: EmployeeComponent,
     canActivate: [LoginGuard],
   },
+  { path: 'login', component: LoginComponent },
   {
     path: 'rooms',
     loadChildren: () => import('./rooms.module').then((m) => m.RoomsModule),
     canActivate: [LoginGuard],
+    canLoad:[LoginGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'booking',
     loadChildren: () =>
-      import('./booking/booking.module').then((m) => m.BookingModule),
+    import('./booking/booking.module').then((m) => m.BookingModule),
     canActivate: [LoginGuard],
   },
   { path: '**', component: NotfoundComponent },
