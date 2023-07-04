@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.even {
+    background-color:steelblue;
+    color: white;
+}
+
+.odd {
+    background-color:tomato;
+    color: white;
+}
+
+.mat-form-field {
+    width: 100%;
+}

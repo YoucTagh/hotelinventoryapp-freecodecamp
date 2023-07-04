@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [BookingComponent],
@@ -26,6 +27,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatListModule,
     MatInputModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatExpansionModule,
   ],
 })
