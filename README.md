@@ -3,88 +3,88 @@
 This project is realised during my training sessions following [the freeodeCamp course](https://www.youtube.com/watch?v=3qBXWUpoPHo&ab_channel=freeCodeCamp.org).
 
 ⭐️ Course Contents ⭐️
-* Introduction
-  * Introduction to Angular
-  * Introduction to Typescript
-  * SPA and Local Setup
-* Typescript
-  * Typescript Data Types and Functions
-  * Classes and Interface
-  * Typescript decorators and tsconfig file
-* Angular Installation and Basics
-  * Angular Installation and Binding Syntax
-  * Built-in Directives
-  * Built-in Pipes
-  * Adding Bootstrap CSS to App
-* Lifecycle Hook and Component Communication
-  * ngOnInt and Component Communication using Input and Output
-  * Change Detection and ngOnChanges
-  * ngDoCheck
-  * ViewChild, ViewChildren and AfterViewInit
-  * Content Projection, AfterContentInit and OnDestroy
-* Dependency Injection
-  * Introduction
-  * Resolution Modifiers
-  * Value Providers
-* HttpClient and RxJs
-  * Setting Up HttpClientModule
-  * HttpService , RxJs observables and http get
-  * RxJs Observable and Observer
-  * Http Put and Delete
-  * Http Request
-  * ShareReplay RxJs Operators
-  * Async Pipe
-  * catchError operator
-  * map operator
-  * Http Interceptor
-  * APP_INITIALIZER
-* Routing Basics
-  * Angular Router and default Route
-  * Adding Angular material and navigation
-  * Wild card, dynamic route and ActivatedRoute service
-  * ParamMap and Activate Route Service
-* Template Driven Forms
-  * Introduction
-  * Validation
-  * Pristine, Dirty State and Reset Form
-  * Custom Directives and Custom Validation
-* Advanced Routing
-  * Navigation using Router Service
-  * Feature and Routing Module
-  * Nested and Child Route
-  * Lazy Loading
-  * Configure Lazy Loading using CLI
-  * Using ProvidedIn Any
-  * Router Events
-  * Listening to Router Events
-* Route Guards
-  * CanActivate
-  * CanActivateChild
-  * CanLoad
-* Reactive Forms
-  * Introduction
-  * Using Material Controls
-  * Nested Form Controls
-  * Dynamic Forms
-  * Built-in Validators
-  * Reset Form
-  * Control Level Validation
-  * SetValue and PatchValue
-  * ValueChanges and UpdateOn
-  * map operator with Form
-  * Custom Validator
-* CanDeactivate Guard
-  * CanDeactivate Guard and Form
-* Custom Pipe
-  * Custom Pipe
-* Resolve Guard
-  * Resolve Guard
-* Global Error Handling
-  * Error Handling
-* Testing Basics
-  * Introduction
-  * First test
-  * Testing Component and Service
-* Deployment and CI/CD
-  * Using Netlify for Deployment 
-  * GitHub Actions to Automate Tasks
+* [x] Introduction
+  * [x] Introduction to Angular
+  * [x] Introduction to Typescript
+  * [x] SPA and Local Setup
+* [x] Typescript
+  * [x] Typescript Data Types and Functions
+  * [x] Classes and Interface
+  * [x] Typescript decorators and tsconfig file
+* [x] Angular Installation and Basics
+  * [x] Angular Installation and Binding Syntax
+  * [x] Built-in Directives
+  * [x] Built-in Pipes
+  * [x] Adding Bootstrap CSS to App
+* [x] Lifecycle Hook and Component Communication
+  * [x] ngOnInt and Component Communication using Input and Output
+  * [x] Change Detection and ngOnChanges
+  * [x] ngDoCheck
+  * [x] ViewChild, ViewChildren and AfterViewInit
+  * [x] Content Projection, AfterContentInit and OnDestroy
+* [x] Dependency Injection
+  * [x] Introduction
+  * [x] Resolution Modifiers
+  * [x] Value Providers
+* [x] HttpClient and RxJs
+  * [x] Setting Up HttpClientModule
+  * [x] HttpService , RxJs observables and http get
+  * [x] RxJs Observable and Observer
+  * [x] Http Put and Delete
+  * [x] Http Request
+  * [x] ShareReplay RxJs Operators
+  * [x] Async Pipe
+  * [x] catchError operator
+  * [x] map operator
+  * [x] Http Interceptor
+  * [x] APP_INITIALIZER
+* [x] Routing Basics
+  * [x] Angular Router and default Route
+  * [x] Adding Angular material and navigation
+  * [x] Wild card, dynamic route and ActivatedRoute service
+  * [x] ParamMap and Activate Route Service
+* [x] Template Driven Forms
+  * [x] Introduction
+  * [x] Validation
+  * [x] Pristine, Dirty State and Reset Form
+  * [x] Custom Directives and Custom Validation
+* [x] Advanced Routing
+  * [x] Navigation using Router Service
+  * [x] Feature and Routing Module
+  * [x] Nested and Child Route
+  * [x] Lazy Loading
+  * [x] Configure Lazy Loading using CLI
+  * [x] Using ProvidedIn Any
+  * [x] Router Events
+  * [x] Listening to Router Events
+* [x] Route Guards
+  * [x] CanActivate
+  * [x] CanActivateChild
+  * [x] CanLoad
+* [x] Reactive Forms
+  * [x] Introduction
+  * [ ] Using Material Controls
+  * [ ] Nested Form Controls
+  * [ ] Dynamic Forms
+  * [ ] Built-in Validators
+  * [ ] Reset Form
+  * [ ] Control Level Validation
+  * [ ] SetValue and PatchValue
+  * [ ] ValueChanges and UpdateOn
+  * [ ] map operator with Form
+  * [ ] Custom Validator
+* [ ] CanDeactivate Guard
+  * [ ] CanDeactivate Guard and Form
+* [ ] Custom Pipe
+  * [ ] Custom Pipe
+* [ ] Resolve Guard
+  * [ ] Resolve Guard
+* [ ] Global Error Handling
+  * [ ] Error Handling
+* [ ] Testing Basics
+  * [ ] Introduction
+  * [ ] First test
+  * [ ] Testing Component and Service
+* [ ] Deployment and CI/CD
+  * [ ] Using Netlify for Deployment 
+  * [ ] GitHub Actions to Automate Tasks
