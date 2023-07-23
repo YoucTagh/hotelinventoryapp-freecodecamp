@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [BookingComponent],
@@ -29,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatExpansionModule,
+    MatCheckboxModule
   ],
 })
 export class BookingModule {}

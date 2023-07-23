@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormsModule,
   FormControl,
+  FormArray,
 } from '@angular/forms';
 
 @Component({
@@ -14,7 +15,9 @@ import {
 export class BookingComponent implements OnInit {
   bookingForm!: FormGroup;
 
-  // guests!:FormGroup[];
+  get guests() {
+    return this.bookingForm.get('guests') as FormArray;
+  }
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -22,6 +25,7 @@ export class BookingComponent implements OnInit {
       roomId: this.fb.control('1'),
       guestEmail: ['test@gmail.com'],
       checkinDate: [new Date('10-Feb-2020')],
+      checkoutDate: [new Date('10-Feb-2020')],
       bookingStatus: [''],
       bookingAmount: [''],
       bookingDate: [''],
@@ -35,26 +39,30 @@ export class BookingComponent implements OnInit {
         country: [''],
         zipCode: [''],
       }),
-      guests: [],
+      guests: this.fb.array([
+        this.fb.group({
+          guestName: [''],
+          age: this.fb.control(''),
+        }),
+      ]),
       tnc: false,
     });
   }
 
+  addPassport() {}
+  deletePassport() {}
 
-  addPassport(){
-
-  }
-  deletePassport(){}
-
-  addBooking(){
-
+  addBooking() {
+    console.log(this.bookingForm.getRawValue());
   }
 
-  addGuest(){
-
+  addGuest() {
+    this.guests.push(
+      this.fb.group({ guestName: [''], age: this.fb.control('') })
+    );
   }
 
-  removeGuest(index:number){
-
+  removeGuest(index: number) {
+    this.guests.removeAt(index);
   }
 }
