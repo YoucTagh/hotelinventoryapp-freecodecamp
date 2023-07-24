@@ -44,20 +44,18 @@
     <mat-error *ngIf="bookingForm.get('guestName')?.hasError('minlength')">
       Guest Name should be minimun 5 characters!
     </mat-error>
-    <!-- <mat-error
-            *ngIf="
-              emailFormControl.hasError('email') &&
-              !emailFormControl.hasError('required')
-            "
-          >
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error> -->
   </mat-form-field>
   <mat-form-field>
     <input type="email" matInput formControlName="guestEmail" placeholder="Provide an Email" />
+    <mat-error *ngIf="
+    emailFormControl.hasError('email') &&
+    !emailFormControl.hasError('required')
+  ">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input type="text" matInput formControlName="mobileNumber" placeholder="Mobile Number" />
@@ -66,24 +64,24 @@
     <input type="number" matInput formControlName="bookingAmount" placeholder="Booking Amount" />
   </mat-form-field>
   <mat-form-field>
-          <mat-label>Checkin date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="checkinDate" />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Checkout date</mat-label>
-          <input matInput [matDatepicker]="checkout" formControlName="checkoutDate" />
-          <mat-datepicker-toggle matSuffix [for]="checkout"></mat-datepicker-toggle>
-          <mat-datepicker #checkout></mat-datepicker>
-            {{bookingForm.get('checkoutDate')?.errors | json}}
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Booking date</mat-label>
-          <input matInput [matDatepicker]="booking" formControlName="bookingDate" />
-          <mat-datepicker-toggle matSuffix [for]="booking"></mat-datepicker-toggle>
-          <mat-datepicker #booking></mat-datepicker>
-        </mat-form-field>
+    <mat-label>Checkin date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="checkinDate" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Checkout date</mat-label>
+    <input matInput [matDatepicker]="checkout" formControlName="checkoutDate" />
+    <mat-datepicker-toggle matSuffix [for]="checkout"></mat-datepicker-toggle>
+    <mat-datepicker #checkout></mat-datepicker>
+    {{bookingForm.get('checkoutDate')?.errors | json}}
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Booking date</mat-label>
+    <input matInput [matDatepicker]="booking" formControlName="bookingDate" />
+    <mat-datepicker-toggle matSuffix [for]="booking"></mat-datepicker-toggle>
+    <mat-datepicker #booking></mat-datepicker>
+  </mat-form-field>
   <div formGroupName="address">
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
@@ -130,44 +128,27 @@
           <mat-panel-title> Guests </mat-panel-title>
         </mat-expansion-panel-header>
         <div *ngFor="let guest of guests.controls; let i = index">
-                <div [formGroupName]="i">
-                  <mat-form-field>
-                    <input
-                      type="text"
-                      matInput
-                      formControlName="guestName"
-                      placeholder="Guest Name"
-                    />
-                    <mat-error
-                      *ngIf="
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input type="text" matInput formControlName="guestName" placeholder="Guest Name" />
+              <mat-error *ngIf="
                         bookingForm
                           .get(['guests', i, 'guestName'])
                           ?.hasError('required')
-                      "
-                    >
-                      Guest name is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input
-                      type="number"
-                      matInput
-                      formControlName="age"
-                      placeholder="Age"
-                    />
-                  </mat-form-field>
-                </div>
-                <div>
-                  <button
-                    mat-raised-button
-                    color="primary"
-                    type="button"
-                    (click)="removeGuest(i)"
-                  >
-                    Remove Guest
-                  </button>
-                </div>
-              </div>
+                      ">
+                Guest name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input type="number" matInput formControlName="age" placeholder="Age" />
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" type="button" (click)="removeGuest(i)">
+              Remove Guest
+            </button>
+          </div>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

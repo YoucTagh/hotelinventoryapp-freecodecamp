@@ -5,6 +5,7 @@ import {
   FormsModule,
   FormControl,
   FormArray,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -18,47 +19,118 @@ export class BookingComponent implements OnInit {
   get guests() {
     return this.bookingForm.get('guests') as FormArray;
   }
+
+  get emailFormControl() {
+    return this.bookingForm.get('guestEmail') as FormControl;
+  }
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.bookingForm = this.fb.group({
-      roomId: this.fb.control('1'),
-      guestEmail: ['test@gmail.com'],
-      checkinDate: [new Date('10-Feb-2020')],
-      checkoutDate: [new Date('10-Feb-2020')],
-      bookingStatus: [''],
-      bookingAmount: [''],
-      bookingDate: [''],
-      mobileNumber: [''],
-      guestName: [''],
-      address: this.fb.group({
-        addressLine1: [''],
-        addressLine2: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: [''],
-      }),
-      guests: this.fb.array([
-        this.fb.group({
-          guestName: [''],
-          age: this.fb.control(''),
+    this.bookingForm = this.fb.group(
+      {
+        roomId: this.fb.control('1', { validators: [Validators.required] }),
+        guestEmail: [
+          'test@gmail.com',
+          {
+            validators: [Validators.required, Validators.email],
+            updateOn: 'blur',
+          },
+        ],
+        checkinDate: [new Date('10-Feb-2020')],
+        checkoutDate: [new Date('10-Feb-2020')],
+        bookingStatus: [''],
+        bookingAmount: [''],
+        bookingDate: [''],
+        mobileNumber: [''],
+        guestName: ['', [Validators.minLength(5)]],
+        address: this.fb.group({
+          addressLine1: ['', [Validators.required]],
+          addressLine2: [''],
+          city: [''],
+          state: [''],
+          country: [''],
+          zipCode: [''],
         }),
-      ]),
+        guests: this.fb.array([
+          this.fb.group({
+            guestName: ['', [Validators.required]],
+            age: this.fb.control(''),
+          }),
+        ]),
+        tnc: [false, [Validators.requiredTrue]],
+      },
+      { updateOn: 'blur' }
+    );
+
+    this.getBookingData();
+    this.bookingForm.valueChanges.subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+  getBookingData() {
+    this.bookingForm.patchValue({
+      roomId: '1',
+      guestEmail: 'test@yh',
+      checkinDate: new Date('20-Feb-2020'),
+      checkoutDate: new Date('20-Feb-2020'),
+      bookingStatus: '',
+      bookingAmount: '',
+      bookingDate: '',
+      mobileNumber: '',
+      guestName: '',
+      address: {
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        state: '',
+        country: '',
+        zipCode: '',
+      },
+      guests: [],
+      tnc: true,
+    });
+  }
+
+  addPassport() {
+    this.bookingForm.addControl('passport', new FormControl(''));
+  }
+  deletePassport() {
+    this.bookingForm.removeControl('passport');
+  }
+
+  addBooking() {
+    console.log(this.bookingForm.getRawValue());
+    this.bookingForm.reset({
+      roomId: '1',
+      guestEmail: 'test@gmail.com',
+      checkinDate: new Date('10-Feb-2020'),
+      checkoutDate: new Date('10-Feb-2020'),
+      bookingStatus: '',
+      bookingAmount: '',
+      bookingDate: '',
+      mobileNumber: '',
+      guestName: '',
+      address: {
+        addressLine1: '',
+        addressLine2: '',
+        city: '',
+        state: '',
+        country: '',
+        zipCode: '',
+      },
+      guests: [],
       tnc: false,
     });
   }
 
-  addPassport() {}
-  deletePassport() {}
-
-  addBooking() {
-    console.log(this.bookingForm.getRawValue());
-  }
-
   addGuest() {
     this.guests.push(
-      this.fb.group({ guestName: [''], age: this.fb.control('') })
+      this.fb.group({
+        guestName: ['', { validators: [Validators.required] }],
+        age: this.fb.control(''),
+      })
     );
   }
 
