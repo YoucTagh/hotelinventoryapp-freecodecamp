@@ -63,14 +63,14 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] CanLoad
 * [x] Reactive Forms
   * [x] Introduction
-  * [ ] Using Material Controls
-  * [ ] Nested Form Controls
-  * [ ] Dynamic Forms
-  * [ ] Built-in Validators
-  * [ ] Reset Form
-  * [ ] Control Level Validation
-  * [ ] SetValue and PatchValue
-  * [ ] ValueChanges and UpdateOn
+  * [x] Using Material Controls
+  * [x] Nested Form Controls
+  * [x] Dynamic Forms
+  * [x] Built-in Validators
+  * [x] Reset Form
+  * [x] Control Level Validation
+  * [x] SetValue and PatchValue
+  * [x] ValueChanges and UpdateOn
   * [ ] map operator with Form
   * [ ] Custom Validator
 * [ ] CanDeactivate Guard
