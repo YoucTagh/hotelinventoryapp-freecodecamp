@@ -71,7 +71,7 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] Control Level Validation
   * [x] SetValue and PatchValue
   * [x] ValueChanges and UpdateOn
-  * [ ] map operator with Form
+  * [x] map operator with Form
   * [ ] Custom Validator
 * [ ] CanDeactivate Guard
   * [ ] CanDeactivate Guard and Form
