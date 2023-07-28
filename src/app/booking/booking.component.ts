@@ -46,7 +46,7 @@ export class BookingComponent implements OnInit {
         bookingAmount: [''],
         bookingDate: [''],
         mobileNumber: [''],
-        guestName: ['', [Validators.minLength(5),CustomValidator.ValidateName]],
+        guestName: ['', [Validators.minLength(5),CustomValidator.ValidateSpecialChar('gh')]],
         address: this.fb.group({
           addressLine1: ['', [Validators.required]],
           addressLine2: [''],
