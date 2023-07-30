@@ -65,14 +65,14 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] Introduction
   * [x] Using Material Controls
   * [x] Nested Form Controls
-  * [x] Dynamic Forms
+  * [x] Dynamic Forms 
   * [x] Built-in Validators
   * [x] Reset Form
   * [x] Control Level Validation
   * [x] SetValue and PatchValue
   * [x] ValueChanges and UpdateOn
   * [x] map operator with Form
-  * [ ] Custom Validator
+  * [x] Custom Validator
 * [ ] CanDeactivate Guard
   * [ ] CanDeactivate Guard and Form
 * [ ] Custom Pipe

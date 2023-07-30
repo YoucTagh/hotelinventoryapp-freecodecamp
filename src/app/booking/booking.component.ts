@@ -27,7 +27,10 @@ export class BookingComponent implements OnInit {
     return this.bookingForm.get('guestEmail') as FormControl;
   }
 
-  constructor(private fb: FormBuilder,private bookingService: BookingService) {}
+  constructor(
+    private fb: FormBuilder,
+    private bookingService: BookingService
+  ) {}
 
   ngOnInit(): void {
     this.bookingForm = this.fb.group(
@@ -46,7 +49,10 @@ export class BookingComponent implements OnInit {
         bookingAmount: [''],
         bookingDate: [''],
         mobileNumber: [''],
-        guestName: ['', [Validators.minLength(5),CustomValidator.ValidateSpecialChar('gh')]],
+        guestName: [
+          '',
+          [Validators.minLength(5), CustomValidator.ValidateSpecialChar('gh')],
+        ],
         address: this.fb.group({
           addressLine1: ['', [Validators.required]],
           addressLine2: [''],
@@ -63,7 +69,7 @@ export class BookingComponent implements OnInit {
         ]),
         tnc: [false, [Validators.requiredTrue]],
       },
-      // { updateOn: 'change' }
+      { updateOn: 'blur', validators: [CustomValidator.ValidateDate] }
     );
 
     this.getBookingData();
@@ -72,12 +78,11 @@ export class BookingComponent implements OnInit {
 
     //   })
     // });
-    this.bookingForm.valueChanges.pipe(
-      exhaustMap((data)=> this.bookingService.bookRoom(data))
-    ).subscribe((data)=>{
-      console.log(data);
-      
-    })
+    this.bookingForm.valueChanges
+      .pipe(exhaustMap((data) => this.bookingService.bookRoom(data)))
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
   getBookingData() {
@@ -134,10 +139,11 @@ export class BookingComponent implements OnInit {
     //   guests: [],
     //   tnc: false,
     // });
-    this.bookingService.bookRoom(this.bookingForm.getRawValue()).subscribe((data)=>{
+    this.bookingService
+      .bookRoom(this.bookingForm.getRawValue())
+      .subscribe((data) => {
         console.log(data);
-        
-    })
+      });
   }
 
   addGuest() {
