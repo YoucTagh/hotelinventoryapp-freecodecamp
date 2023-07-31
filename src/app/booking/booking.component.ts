@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { BookingService } from './service/booking.service';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -29,13 +30,15 @@ export class BookingComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private route:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    const roomId = this.route.snapshot.paramMap.get('roomId')
     this.bookingForm = this.fb.group(
       {
-        roomId: this.fb.control('1', { validators: [Validators.required] }),
+        roomId: this.fb.control(roomId, { validators: [Validators.required] }),
         guestEmail: [
           'test@gmail.com',
           {
@@ -87,7 +90,6 @@ export class BookingComponent implements OnInit {
 
   getBookingData() {
     this.bookingForm.patchValue({
-      roomId: '1',
       guestEmail: 'test@yh',
       checkinDate: new Date('20-Feb-2020'),
       checkoutDate: new Date('20-Feb-2020'),

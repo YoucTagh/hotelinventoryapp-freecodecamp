@@ -23,7 +23,7 @@
         <td>{{room.rating|number:'2.4-4':'en-us'}}</td>
         <td>
             <!-- <button (click)="selectRoom(room)">Select</button> -->
-            <button mat-flat-button [routerLink]="room.roomNumber">Book Room</button>
+            <button mat-flat-button [routerLink]="['/booking',room.roomNumber]">Book Room</button>
             <button (click)="deleteRoom(room)">Delete</button>
         </td>
     </tr>

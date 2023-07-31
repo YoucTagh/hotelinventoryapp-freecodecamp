@@ -16,11 +16,11 @@ const routes: Routes = [
     path: 'rooms',
     loadChildren: () => import('./rooms.module').then((m) => m.RoomsModule),
     canActivate: [LoginGuard],
-    canLoad:[LoginGuard]
+    // canLoad:[LoginGuard]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: 'booking',
+    path: 'booking/:roomId',
     loadChildren: () =>
     import('./booking/booking.module').then((m) => m.BookingModule),
     // canActivate: [LoginGuard],
