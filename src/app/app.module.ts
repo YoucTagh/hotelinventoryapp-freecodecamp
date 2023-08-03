@@ -1,3 +1,4 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouteConfigToken } from './shared/services/config/routeConfig.service';
 import { RouteConfig } from './shared/services/config/routeConfig';
 import { RoomsModule } from './rooms.module';
@@ -24,10 +25,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HoverDirective } from './hover.directive';
 import { EmailvalidatorDirective } from './emailvalidator.directive';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 function initFactory(initService: InitService) {
   return () => initService.init();
 }
@@ -55,7 +58,11 @@ function initFactory(initService: InitService) {
     MatIconModule,
     MatListModule,
     MatInputModule,
+    MatSnackBarModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     {

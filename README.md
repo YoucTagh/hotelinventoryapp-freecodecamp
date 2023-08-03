@@ -73,8 +73,8 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] ValueChanges and UpdateOn
   * [x] map operator with Form
   * [x] Custom Validator
-* [ ] CanDeactivate Guard
-  * [ ] CanDeactivate Guard and Form
+* [x] CanDeactivate Guard
+  * [x] CanDeactivate Guard and Form
 * [ ] Custom Pipe
   * [ ] Custom Pipe
 * [ ] Resolve Guard
