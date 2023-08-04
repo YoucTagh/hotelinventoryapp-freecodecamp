@@ -12,7 +12,7 @@
 <div *ngIf="rooms$ | async as roomsAsync">
     <div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
         Rooms List
-        <hinv-room-list [roomList]="roomsAsync" (selectedRoom)="selectRoom($event)" (deletedRoom)="deleteRoom($event)">
+        <hinv-room-list [price]="priceFilter.value" [roomList]="roomsAsync" (selectedRoom)="selectRoom($event)" (deletedRoom)="deleteRoom($event)">
         </hinv-room-list>
     </div>
 

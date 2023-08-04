@@ -6,9 +6,9 @@ import { RoomList } from './rooms';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(rooms: RoomList[], price:number): unknown {
+  transform(rooms: RoomList[], price:number): RoomList[] {
 
-    return rooms.filter((rooms)=>rooms.price<=price);
+    return rooms.filter((rooms)=>rooms.price<=price) ;
   }
 
 }

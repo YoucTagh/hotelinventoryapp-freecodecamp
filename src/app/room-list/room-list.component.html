@@ -11,7 +11,7 @@
         <th>Rating</th>
         <th>Actions</th>
     </tr>
-    <tr *ngFor="let room of roomList; let e=even;let o=odd;let i=index">
+    <tr *ngFor="let room of roomList |filter:price; let e=even;let o=odd;let i=index">
         <td>{{i+1}}</td>
         <td>{{e?'Even':'Odd'}}</td>
         <td>{{room.roomType}}</td>

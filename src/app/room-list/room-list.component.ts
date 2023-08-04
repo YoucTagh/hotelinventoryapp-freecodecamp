@@ -16,12 +16,13 @@ import { RoomList } from '../rooms/rooms';
   selector: 'hinv-room-list',
   templateUrl: './room-list.component.html',
   styleUrls: ['./room-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RoomListComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() roomList: RoomList[] | null = [];
+  @Input() roomList: RoomList[] = [];
   @Output() selectedRoom: EventEmitter<RoomList> = new EventEmitter<RoomList>();
   @Output() deletedRoom: EventEmitter<RoomList> = new EventEmitter<RoomList>();
+  @Input() price : number = 0;
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
