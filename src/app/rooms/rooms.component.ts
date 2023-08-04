@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import { RoomsService } from './../shared/services/rooms/rooms.service';
 import { HeaderComponent } from './../header/header.component';
 import {
@@ -182,4 +183,6 @@ export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  priceFilter = new FormControl(0)
 }

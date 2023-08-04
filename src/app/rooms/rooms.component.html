@@ -1,8 +1,13 @@
 <h1>Welcome to {{hotelName}}</h1>
 
-<hinv-header></hinv-header>
+<!-- <hinv-header></hinv-header>
 
-{{rooms?.availableRooms ?? 'No rooms'}}
+{{rooms?.availableRooms ?? 'No rooms'}} -->
+
+{{priceFilter.value}}
+<div>
+    <input type="number" class="form-control" placeholder="Price" [formControl] = "priceFilter" >
+</div>
 
 <div *ngIf="rooms$ | async as roomsAsync">
     <div *ngIf="hidden && rooms.availableRooms != undefined && rooms.availableRooms > 0">
