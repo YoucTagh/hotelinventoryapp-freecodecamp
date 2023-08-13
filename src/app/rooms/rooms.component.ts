@@ -119,10 +119,10 @@ export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     // console.log(this.headerComponent);
-    this.headerComponent.title = 'Rooms View';
-    this.headerChildrenComponent.forEach((h, index) => {
-      h.title = `Room View ${index + 1} `;
-    });
+    // this.headerComponent.title = 'Rooms View';
+    // this.headerChildrenComponent.forEach((h, index) => {
+    //   h.title = `Room View ${index + 1} `;
+    // });
   }
 
   increement() {
@@ -185,4 +185,6 @@ export class RoomsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   priceFilter = new FormControl(0)
+
+
 }

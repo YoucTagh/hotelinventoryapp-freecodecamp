@@ -79,8 +79,8 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] Custom Pipe
 * [x] Resolve Guard
   * [x] Resolve Guard
-* [ ] Global Error Handling
-  * [ ] Error Handling
+* [x] Global Error Handling
+  * [x] Error Handling
 * [ ] Testing Basics
   * [ ] Introduction
   * [ ] First test
