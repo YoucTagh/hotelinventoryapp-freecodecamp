@@ -1,3 +1,5 @@
+import { GlobalErrorHandler } from './errorhandler.service';
+import { ErrorHandler } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouteConfigToken } from './shared/services/config/routeConfig.service';
 import { RouteConfig } from './shared/services/config/routeConfig';
@@ -83,6 +85,10 @@ function initFactory(initService: InitService) {
       useFactory: initFactory,
       deps: [InitService],
       multi: true,
+    },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
     },
   ],
   bootstrap: [AppComponent],

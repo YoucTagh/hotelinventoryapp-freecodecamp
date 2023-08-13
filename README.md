@@ -75,10 +75,10 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] Custom Validator
 * [x] CanDeactivate Guard
   * [x] CanDeactivate Guard and Form
-* [ ] Custom Pipe
-  * [ ] Custom Pipe
-* [ ] Resolve Guard
-  * [ ] Resolve Guard
+* [x] Custom Pipe
+  * [x] Custom Pipe
+* [x] Resolve Guard
+  * [x] Resolve Guard
 * [ ] Global Error Handling
   * [ ] Error Handling
 * [ ] Testing Basics
