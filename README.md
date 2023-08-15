@@ -81,10 +81,10 @@ This project is realised during my training sessions following [the freeodeCamp 
   * [x] Resolve Guard
 * [x] Global Error Handling
   * [x] Error Handling
-* [ ] Testing Basics
-  * [ ] Introduction
-  * [ ] First test
-  * [ ] Testing Component and Service
-* [ ] Deployment and CI/CD
-  * [ ] Using Netlify for Deployment 
-  * [ ] GitHub Actions to Automate Tasks
+* [x] Testing Basics
+  * [x] Introduction
+  * [x] First test
+  * [x] Testing Component and Service
+* [x] Deployment and CI/CD
+  * [x] Using Netlify for Deployment 
+  * [x] GitHub Actions to Automate Tasks
